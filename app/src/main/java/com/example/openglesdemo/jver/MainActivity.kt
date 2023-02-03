@@ -1,4 +1,4 @@
-package com.example.openglesdemo
+package com.example.openglesdemo.jver
 
 import android.opengl.GLSurfaceView
 import androidx.appcompat.app.AppCompatActivity

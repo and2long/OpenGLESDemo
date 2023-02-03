@@ -1,4 +1,4 @@
-package com.example.openglesdemo
+package com.example.openglesdemo.jver
 
 import android.opengl.GLES20
 import android.opengl.GLSurfaceView
