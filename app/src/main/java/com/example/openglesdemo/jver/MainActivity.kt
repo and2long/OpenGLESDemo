@@ -13,4 +13,15 @@ class MainActivity : AppCompatActivity() {
         gLView = MyGLSurfaceView(this)
         setContentView(gLView)
     }
+
+    override fun onResume() {
+        super.onResume()
+        gLView.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        gLView.onPause()
+    }
+
 }

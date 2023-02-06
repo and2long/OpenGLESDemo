@@ -16,7 +16,7 @@
         android:theme="@style/Theme.OpenGLESDemo"
         tools:targetApi="31">
         <activity
-            android:name=".cver.NativeActivity"
+            android:name=".cver.SimpleTriangleActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
