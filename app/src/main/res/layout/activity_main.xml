@@ -18,5 +18,11 @@
         android:layout_height="wrap_content"
         android:text="Simple Cube" />
 
+    <Button
+        android:id="@+id/btn_texture_cube"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Texture Cube" />
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>

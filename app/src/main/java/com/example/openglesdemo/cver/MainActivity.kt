@@ -1,9 +1,9 @@
 package com.example.openglesdemo.cver
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import com.example.openglesdemo.R
 
 class MainActivity : AppCompatActivity() {
@@ -12,14 +12,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<Button>(R.id.btn_simple_triangle).setOnClickListener {
-            val intent = Intent(this, DetailActivity::class.java)
-            intent.putExtra("param", PARAM_SIMPLE_TRIANGLE)
-            startActivity(intent)
+            goToDetailActivity(PARAM_SIMPLE_TRIANGLE)
         }
         findViewById<Button>(R.id.btn_simple_cube).setOnClickListener {
-            val intent = Intent(this, DetailActivity::class.java)
-            intent.putExtra("param", PARAM_SIMPLE_CUBE)
-            startActivity(intent)
+            goToDetailActivity(PARAM_SIMPLE_CUBE)
         }
+        findViewById<Button>(R.id.btn_texture_cube).setOnClickListener {
+            goToDetailActivity(PARAM_TEXTURE_CUBE)
+        }
+    }
+
+    private fun goToDetailActivity(param: String) {
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra("param", param)
+        startActivity(intent)
     }
 }
