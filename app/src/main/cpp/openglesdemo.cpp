@@ -5,6 +5,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cmath>
+
 #define LOG_TAG "libNative"
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
@@ -23,7 +24,7 @@ static const char glFragmentShader[] =
         "  gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n"
         "}\n";
 
-GLuint loadShader(GLenum shaderType, const char* shaderSource)
+GLuint loadShader(GLenum shaderType, const char *shaderSource)
 {
     GLuint shader = glCreateShader(shaderType);
     if (shader)
@@ -38,7 +39,7 @@ GLuint loadShader(GLenum shaderType, const char* shaderSource)
             glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLen);
             if (infoLen)
             {
-                char * buf = (char*) malloc(infoLen);
+                char *buf = (char *) malloc(infoLen);
                 if (buf)
                 {
                     glGetShaderInfoLog(shader, infoLen, NULL, buf);
@@ -53,7 +54,7 @@ GLuint loadShader(GLenum shaderType, const char* shaderSource)
     return shader;
 }
 
-GLuint createProgram(const char* vertexSource, const char * fragmentSource)
+GLuint createProgram(const char *vertexSource, const char *fragmentSource)
 {
     GLuint vertexShader = loadShader(GL_VERTEX_SHADER, vertexSource);
     if (!vertexShader)
@@ -68,18 +69,18 @@ GLuint createProgram(const char* vertexSource, const char * fragmentSource)
     GLuint program = glCreateProgram();
     if (program)
     {
-        glAttachShader(program , vertexShader);
+        glAttachShader(program, vertexShader);
         glAttachShader(program, fragmentShader);
         glLinkProgram(program);
         GLint linkStatus = GL_FALSE;
-        glGetProgramiv(program , GL_LINK_STATUS, &linkStatus);
-        if( linkStatus != GL_TRUE)
+        glGetProgramiv(program, GL_LINK_STATUS, &linkStatus);
+        if (linkStatus != GL_TRUE)
         {
             GLint bufLength = 0;
             glGetProgramiv(program, GL_INFO_LOG_LENGTH, &bufLength);
             if (bufLength)
             {
-                char* buf = (char*) malloc(bufLength);
+                char *buf = (char *) malloc(bufLength);
                 if (buf)
                 {
                     glGetProgramInfoLog(program, bufLength, NULL, buf);
@@ -96,6 +97,7 @@ GLuint createProgram(const char* vertexSource, const char * fragmentSource)
 
 GLuint simpleTriangleProgram;
 GLuint vPosition;
+
 bool setupGraphics(int w, int h)
 {
     simpleTriangleProgram = createProgram(glVertexShader, glFragmentShader);
@@ -118,22 +120,24 @@ const GLfloat triangleVertices[] = {
 void renderFrame()
 {
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    glClear (GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+    glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
     glUseProgram(simpleTriangleProgram);
-    glVertexAttribPointer(vPosition, 2, GL_FLOAT, GL_FALSE, 0 ,triangleVertices);
+    glVertexAttribPointer(vPosition, 2, GL_FLOAT, GL_FALSE, 0, triangleVertices);
     glEnableVertexAttribArray(vPosition);
     glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_example_openglesdemo_cver_NativeLibrary_step(JNIEnv *env, jclass clazz) {
+Java_com_example_openglesdemo_cver_NativeLibrary_step(JNIEnv *env, jclass clazz)
+{
     renderFrame();
 }
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_example_openglesdemo_cver_NativeLibrary_init(JNIEnv *env, jclass clazz, jint width,
-                                                      jint height) {
+                                                      jint height)
+{
     setupGraphics(width, height);
 }
 
