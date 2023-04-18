@@ -6,6 +6,8 @@ public class NativeLibrary
     {
         System.loadLibrary("openglesdemo");
     }
-    public static native void init(int width, int height);
-    public static native void step();
+    public static native void initSimpleTriangle(int width, int height);
+    public static native void stepSimpleTriangle();
+    public static native void initSimpleCube(int width, int height);
+    public static native void stepSimpleCube();
 }

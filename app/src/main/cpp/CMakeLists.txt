@@ -22,7 +22,8 @@ add_library( # Sets the name of the library.
         SHARED
 
         # Provides a relative path to your source file(s).
-        SimpleCube/Native.cpp
+        SimpleTriangle/SimpleTriangle.cpp
+        SimpleCube/SimpleCube.cpp
         SimpleCube/Matrix.h
         SimpleCube/Matrix.cpp)
 

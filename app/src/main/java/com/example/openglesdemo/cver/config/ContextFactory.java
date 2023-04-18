@@ -1,4 +1,4 @@
-package com.example.openglesdemo.cver;
+package com.example.openglesdemo.cver.config;
 
 import android.opengl.GLSurfaceView;
 
