@@ -11,7 +11,7 @@
 #include <cstdlib>
 #include <cmath>
 
-#include "../SimpleCube/Matrix.h"
+#include "../Matrix/Matrix.h"
 #include "Texture.h"
 
 #define LOG_TAG "libNative"

@@ -20,6 +20,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_texture_cube).setOnClickListener {
             goToDetailActivity(PARAM_TEXTURE_CUBE)
         }
+        findViewById<Button>(R.id.btn_lighting).setOnClickListener {
+            goToDetailActivity(PARAM_LIGHTING)
+        }
     }
 
     private fun goToDetailActivity(param: String) {

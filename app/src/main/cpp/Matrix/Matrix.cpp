@@ -1,12 +1,11 @@
 //
-// Created by Lilong Zhang on 2023/4/18.
+// Created by Lilong Zhang on 2023/4/19.
 //
 #include "Matrix.h"
 
-/* [matrixIdentity] */
 void matrixIdentityFunction(float *matrix)
 {
-    if (matrix == nullptr)
+    if (matrix == NULL)
     {
         return;
     }
@@ -28,8 +27,7 @@ void matrixIdentityFunction(float *matrix)
     matrix[14] = 0.0f;
     matrix[15] = 1.0f;
 }
-/* [matrixIdentity] */
-/* [matrixTranslate] */
+
 void matrixTranslate(float *matrix, float x, float y, float z)
 {
     float temporaryMatrix[16];
@@ -39,9 +37,7 @@ void matrixTranslate(float *matrix, float x, float y, float z)
     temporaryMatrix[14] = z;
     matrixMultiply(matrix, temporaryMatrix, matrix);
 }
-/* [matrixTranslate] */
 
-/* [matrixMultiply] */
 void matrixMultiply(float *destination, float *operand1, float *operand2)
 {
     float theResult[16];
@@ -62,9 +58,7 @@ void matrixMultiply(float *destination, float *operand1, float *operand2)
         destination[i] = theResult[i];
     }
 }
-/* [matrixMultiply] */
 
-/* [matrixFrustum] */
 void matrixFrustum(float *matrix, float left, float right, float bottom, float top, float zNear,
                    float zFar)
 {
@@ -83,9 +77,7 @@ void matrixFrustum(float *matrix, float left, float right, float bottom, float t
     matrix[14] = (-temp * zFar) / zDistance;
     matrix[15] = 0.0f;
 }
-/* [matrixFrustum] */
 
-/* [matrixPerspective] */
 void matrixPerspective(float *matrix, float fieldOfView, float aspectRatio, float zNear, float zFar)
 {
     float ymax, xmax;
@@ -93,9 +85,7 @@ void matrixPerspective(float *matrix, float fieldOfView, float aspectRatio, floa
     xmax = ymax * aspectRatio;
     matrixFrustum(matrix, -xmax, xmax, -ymax, ymax, zNear, zFar);
 }
-/* [matrixPerspective] */
 
-/* [matrixRotate] */
 void matrixRotateX(float *matrix, float angle)
 {
     float tempMatrix[16];
@@ -131,9 +121,7 @@ void matrixRotateZ(float *matrix, float angle)
     tempMatrix[5] = cos(matrixDegreesToRadians(angle));
     matrixMultiply(matrix, tempMatrix, matrix);
 }
-/* [matrixRotate] */
 
-/* [matrixScale] */
 void matrixScale(float *matrix, float x, float y, float z)
 {
     float tempMatrix[16];
@@ -144,8 +132,6 @@ void matrixScale(float *matrix, float x, float y, float z)
     tempMatrix[10] = z;
     matrixMultiply(matrix, tempMatrix, matrix);
 }
-
-/* [matrixScale] */
 
 float matrixDegreesToRadians(float degrees)
 {

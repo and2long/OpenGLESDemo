@@ -8,7 +8,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cmath>
-#include "Matrix.h"
+#include "../Matrix/Matrix.h"
 
 #define LOG_TAG "libNative"
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)

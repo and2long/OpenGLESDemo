@@ -22,13 +22,14 @@ add_library( # Sets the name of the library.
         SHARED
 
         # Provides a relative path to your source file(s).
-        SimpleCube/Matrix.h
-        SimpleCube/Matrix.cpp
+        Matrix/Matrix.h
+        Matrix/Matrix.cpp
         SimpleCube/SimpleCube.cpp
         TextureCube/Texture.h
         TextureCube/Texture.cpp
         TextureCube/TextureCube.cpp
         SimpleTriangle/SimpleTriangle.cpp
+        Lighting/Lighting.cpp
         )
 
 # Searches for a specified prebuilt library and stores the path as a
